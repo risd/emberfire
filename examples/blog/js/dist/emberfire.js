@@ -9,7 +9,6 @@
  */
 (function() {
   "use strict";
-
   /* Only enable if Ember Data is included */
   if (window.DS === undefined) {
     return;
@@ -724,7 +723,21 @@
      * helper can be removed.
      */
     _getKey: function(refOrSnapshot) {
-      return (typeof refOrSnapshot.key === 'function') ? refOrSnapshot.key() : refOrSnapshot.name();
+      if ( typeof refOrSnapshot.key === 'string' ) {
+        // Firebase 4+
+        return refOrSnapshot.key;
+      }
+      else if ( typeof refOrSnapshot.name === 'function' ) {
+        // Firebase 2+
+        return refOrSnapshot.name();
+      }
+      else if ( typeof refOrSnapshot.key === 'function' ) {
+        // Firebase 1
+        return refOrSnapshot.key();
+      }
+      else {
+        throw new Error( 'Could not get key for ref or snapshot.' );
+      }
     }
   });
 
