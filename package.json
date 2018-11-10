@@ -1,7 +1,7 @@
 {
   "name": "@risd/emberfire",
   "description": "Ember binding for Firebase for use with @risd/webhook-cms",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Firebase <support@firebase.com> (https://www.firebase.com/)",
   "homepage": "https://github.com/firebase/emberfire/",
   "repository": {
