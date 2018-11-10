@@ -55,6 +55,8 @@
   },
   "scripts": {
     "test": "grunt test",
-    "travis": "grunt"
+    "travis": "grunt",
+    "watch": "grunt watch",
+    "build": "grunt build"
   }
 }
